@@ -1,7 +1,7 @@
 CogWeb Fall/Winter 2024
 =======================
 
-Access all past notebooks at the Google Drive folder `here <https://drive.google.com/drive/folders/1l7cMpw65cTQkIBLgJ4UUBXahili08747?usp=drive_link>`_.
+Access all past notebooks at the Google Drive folder `here <https://drive.google.com/drive/folders/1l7cMpw65cTQkIBLgJ4UUBXahili08747?usp=sharing>`_.
 
 Last updated: October 11, 2024
 
