@@ -1,0 +1,1039 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="[2] Intro to Python Two" href="../lecture_two/" /><link rel="prev" title="CogWeb Fall/Winter 2024" href="../../" />
+
+    <!-- Generated with Sphinx 8.1.0 and Furo 2024.08.06 -->
+        <title>[1] Intro to Python - CogWeb Fall/Winter</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=3d3fbe02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=f6b83bd1" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #0d1117;
+  --color-code-foreground: #e6edf3;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #0d1117;
+  --color-code-foreground: #e6edf3;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../"><div class="brand">CogWeb Fall/Winter</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../">
+  
+  
+  <span class="sidebar-brand-text">CogWeb Fall/Winter</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">[1] Intro to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Numbers:">Numbers:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Math-Functions-(add,-subtract,-multiply,-divide,-exponent,-mod):">Math Functions (add, subtract, multiply, divide, exponent, mod):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Booleans-(True/False)">Booleans (True/False)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#And">And</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Or">Or</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Types">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Strings">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#Conditional-Statements">Conditional Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture_two/">[2] Intro to Python Two</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro_to_python/">[1.1] Intro to Python</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../../_sources/notebooks/lecture_one.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="[1]-Intro-to-Python">
+<h1>[1] Intro to Python<a class="headerlink" href="#[1]-Intro-to-Python" title="Link to this heading">¶</a></h1>
+<p>In this lecture, we will be going through a brief introduction to python and the skills you will be using for the rest of the course. I will first show you how to use these aspects of python, and then give you time to complete a problem set notebook which will apply the topics we just covered.</p>
+</section>
+<section id="Numbers:">
+<h1>Numbers:<a class="headerlink" href="#Numbers:" title="Link to this heading">¶</a></h1>
+<p>In python, there are different kinds of variables which can be used to store numbers of varying precision. In this section, we will walk you through creating and assigning these variables, how to display their values, and explain their limitations.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Integers and floating point numbers (floats)</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">6.5</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Print</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="sd">&#39;&#39;&#39;To display the values of variables, you can use the print function&#39;&#39;&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5
+6.5
+</pre></div></div>
+</div>
+</section>
+<section id="Math-Functions-(add,-subtract,-multiply,-divide,-exponent,-mod):">
+<h1>Math Functions (add, subtract, multiply, divide, exponent, mod):<a class="headerlink" href="#Math-Functions-(add,-subtract,-multiply,-divide,-exponent,-mod):" title="Link to this heading">¶</a></h1>
+<p>In python, there are math functions which you can use to perform both the standard operations you use everyday, and some others. In this section, we will show you how to perform these functions and what they can be used for outside of standard calculations.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Addition</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+11.5
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Subtraction</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-1.5
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &lt;COGINST&gt;</span>
+<span class="sd">&#39;&#39;&#39;When performing operations on floating point numbers,</span>
+<span class="sd">the method which the computer uses to store the values</span>
+<span class="sd">can result in minor variations from expected values.</span>
+<span class="sd">You do not need to understand why this is, but it is</span>
+<span class="sd">important to be aware of it.  We will show you how</span>
+<span class="sd">to account for this soon.&#39;&#39;&#39;</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+<span class="c1"># Run this cell:</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">-</span> <span class="mf">0.3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+5.551115123125783e-17
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Multiplication</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+32.5
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Division</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.7692307692307693
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Exponents</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+25
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mod</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Floor Division</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">b</span> <span class="o">//</span> <span class="n">a</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.0
+</pre></div></div>
+</div>
+</section>
+<section id="Booleans-(True/False)">
+<h1>Booleans (True/False)<a class="headerlink" href="#Booleans-(True/False)" title="Link to this heading">¶</a></h1>
+<p>In python, there are variables called booleans which can have the values true or false. In this section, we will show you how to assign boolean variables, check their values, and use them in meaningful ways.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating and assigning booleans</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">condition1</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">condition1</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Comparison statements</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+True
+False
+True
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using mutiple conditions (and/or)</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="c1"># There may be times where you will need</span>
+<span class="c1"># to check mutiple conditions at the same time,</span>
+<span class="c1"># or see if any one conditions in a set is true.</span>
+<span class="c1"># You can do this using and/or statements.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">and</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="kc">False</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+False
+True
+False
+</pre></div></div>
+</div>
+</section>
+<section id="And">
+<h1>And<a class="headerlink" href="#And" title="Link to this heading">¶</a></h1>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Condition 1</p></th>
+<th class="head"><p>Condition 2</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>False</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="Or">
+<h1>Or<a class="headerlink" href="#Or" title="Link to this heading">¶</a></h1>
+<div class="table-wrapper docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Condition 1</p></th>
+<th class="head"><p>Condition 2</p></th>
+<th class="head"><p>Result</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>True</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>True</p></td>
+<td><p>False</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-even"><td><p>False</p></td>
+<td><p>True</p></td>
+<td><p>True</p></td>
+</tr>
+<tr class="row-odd"><td><p>False</p></td>
+<td><p>False</p></td>
+<td><p>False</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># When checking if two floating point numbers are equivalent, we cannot use the == operator.</span>
+<span class="c1"># This is because of the limited precision we saw illustrated in the earlier example.</span>
+<span class="c1"># Try checking if 0.1 + 0.1 + 0.1 is equal to 0.3</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># There is a function in the math module ofpython which allows us to check</span>
+<span class="c1"># if two floats are close enough in value to be considered equal.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="kn">import</span> <span class="nn">math</span> <span class="c1"># We will cover imports later. For now, just type this line.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">isclose</span><span class="p">((</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.1</span><span class="p">),</span> <span class="mf">0.3</span><span class="p">))</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+</section>
+<section id="Types">
+<h1>Types<a class="headerlink" href="#Types" title="Link to this heading">¶</a></h1>
+<p>Every variable you have worked with so far has been what is called an instance of an object of its corresponding type. For instance, when you created the variable ‘a’ and made it equal 5, you create an instance of the integer type whose name is ‘a’ and value is 5. Integers, floats, and booleans are all objects. There are other types of objects as well that we will cover later, and additional types can be created through the code you write.</p>
+<p>If this seems a bit confusing, that is ok. It will make more sense as we work through this section. In this section, we will be showing you a few ways to check what type an object is and how that can be useful.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># One way to check the type of an object is to use type()</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;class &#39;int&#39;&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># To check if an object is of a specific type, you can use isinstance()</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">int</span><span class="p">))</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+<section id="The-rest-is-only-if-we-have-time-after-the-problem-set">
+<h2>The rest is only if we have time after the problem set<a class="headerlink" href="#The-rest-is-only-if-we-have-time-after-the-problem-set" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+<section id="Strings">
+<h1>Strings<a class="headerlink" href="#Strings" title="Link to this heading">¶</a></h1>
+<p>Strings are a type of object which can store text. Where a number like an integer or float would store a number, a string object will store characters.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Creating a string</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">sentence1</span> <span class="o">=</span> <span class="s2">&quot;I love python!&quot;</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can print strings the same way you would print a number.  Try printing sentence1</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sentence1</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+I love python!
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Strings can store letters, numbers, spaces, special characters, etc.  However, a number stored as a string cannot be used</span>
+<span class="c1"># the same way an integer or float would.  Try checking if the string &#39;3&#39; is equal to the integer 3</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;3&#39;</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+False
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Strings can be added together, but it doesn&#39;t add them like numbers.  Instead, it combines the strings</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;word 1 &quot;</span> <span class="o">+</span> <span class="s2">&quot;word 2&quot;</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+word 1 word 2
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can check if two strings are the same using the == operator</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;word&#39;</span> <span class="o">==</span> <span class="s1">&#39;word&#39;</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+</pre></div></div>
+</div>
+</section>
+<section id="Conditional-Statements">
+<h1>Conditional Statements<a class="headerlink" href="#Conditional-Statements" title="Link to this heading">¶</a></h1>
+<p>It can be useful to be able to write code which will only perform an action if a condition is met, and will perform a different one otherwise. For this, we use something called if statements.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Our first if statement!</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="k">if</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+true
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now write the same statement with False in the parentheses</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="k">if</span><span class="p">(</span><span class="kc">False</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># There is no output because the statement skipped the code we put inside of it.</span>
+<span class="c1"># Whatever you put in the parentheses will be evaluated first, and if the outcome is True the internal code will be run.</span>
+<span class="c1"># Try putting other things as your condition and then we&#39;ll share a couple of the things you come up with.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="c1"># Give them about 2 minutes to try some, then ask for 3 examples.  Show them that they can use ==, &gt;=, and/or, etc. if</span>
+<span class="c1"># none of them come up with those on their own.</span>
+
+<span class="c1"># examples: if(True and False), if(True or False), if(3 == 3), if(3 != 2)</span>
+
+<span class="c1"># &lt;/COGINST&gt;</span>
+
+<span class="c1"># Ex:</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">if</span><span class="p">(</span><span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+
+<span class="c1"># Now you try!</span>
+<span class="sd">&#39;&#39;&#39;Ask for student examples&#39;&#39;&#39;</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+true
+False
+</pre></div></div>
+</div>
+<p>There is another part we can add to the if statement which will tell the code to do something different if the condition is false. This is called an else.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Trying else statements</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="k">if</span><span class="p">(</span><span class="kc">True</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;false&#39;</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+true
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># The code printed &#39;true&#39; because the condition was true.  It skipped the else statement because it ran the if statement.</span>
+<span class="c1"># Try replacing the condition with False</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="k">if</span><span class="p">(</span><span class="kc">False</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;true&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;false&#39;</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+false
+</pre></div></div>
+</div>
+<p>The final addition to our chain of if and else statement is called an else-if (elif). This allows us to do different things depending on which condition is true. You can have as many elifs in the chain as you would like, but the code will skip all of the remaining statements once one of them is a success.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if, elif, else</span>
+<span class="sd">&#39;&#39;&#39;Type example code below&#39;&#39;&#39;</span>
+
+<span class="c1"># We are going to create a number and see what it is equal to.</span>
+<span class="c1"># There are much easier ways of doing this, but it makes for a good example.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x=1&#39;</span><span class="p">)</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x=2&#39;</span><span class="p">)</span>
+<span class="k">elif</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x=3&#39;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x&gt;3&#39;</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+x=3
+</pre></div></div>
+</div>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../lecture_two/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">[2] Intro to Python Two</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../../">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">Home</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer no-toc">
+      
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=19645805"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>

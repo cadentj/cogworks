@@ -1,0 +1,1036 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex/" /><link rel="search" title="Search" href="../../search/" /><link rel="next" title="[1.1] Intro to Python" href="../intro_to_python/" /><link rel="prev" title="[1] Intro to Python" href="../lecture_one/" />
+
+    <!-- Generated with Sphinx 8.1.0 and Furo 2024.08.06 -->
+        <title>[2] Intro to Python Two - CogWeb Fall/Winter</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=3d3fbe02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=2aa19091" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=f6b83bd1" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #ffffff;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #0d1117;
+  --color-code-foreground: #e6edf3;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #0d1117;
+  --color-code-foreground: #e6edf3;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../"><div class="brand">CogWeb Fall/Winter</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../">
+  
+  
+  <span class="sidebar-brand-text">CogWeb Fall/Winter</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../lecture_one/">[1] Intro to Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture_one/#Numbers:">Numbers:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture_one/#Math-Functions-(add,-subtract,-multiply,-divide,-exponent,-mod):">Math Functions (add, subtract, multiply, divide, exponent, mod):</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture_one/#Booleans-(True/False)">Booleans (True/False)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture_one/#And">And</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture_one/#Or">Or</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture_one/#Types">Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture_one/#Strings">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../lecture_one/#Conditional-Statements">Conditional Statements</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">[2] Intro to Python Two</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro_to_python/">[1.1] Intro to Python</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="../../_sources/notebooks/lecture_two.ipynb.txt" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div>
+<div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="[2]-Intro-to-Python-Two">
+<h1>[2] Intro to Python Two<a class="headerlink" href="#[2]-Intro-to-Python-Two" title="Link to this heading">¶</a></h1>
+<p>In this notebook, we will be learning about the concept of iterables as well as creating both loops and functions.</p>
+<section id="Iterables:">
+<h2>Iterables:<a class="headerlink" href="#Iterables:" title="Link to this heading">¶</a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Constructing a List:</span>
+
+<span class="c1"># A list is created using square-brackets, and its contents are separated by commas.</span>
+<span class="c1"># The items inside the list do not need to be of the same object type.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">example</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Constructing a Tuple:</span>
+
+<span class="c1"># A tuple is constructed using parentheses, and its contents are separated by commas.</span>
+<span class="c1"># Similar to a list, the items inside the tuple do not need to be of the same object type.</span>
+<span class="c1"># One of the major differences between tuples and lists is that tuples are considered immutable.</span>
+<span class="c1"># This means that the contents of the tuple cannot be changed the way a list&#39;s can.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">example2</span> <span class="o">=</span> <span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;word&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Indexing</span>
+
+<span class="c1"># You can access single values from iterables such as lists and tuples using indexing.</span>
+<span class="c1"># To index into an iterable, you type the name of the iterable, followed by square brackets</span>
+<span class="c1"># containing the index of the desired value.</span>
+
+<span class="c1"># It is important to remember that indices begin at 0 instead of 1!</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">example2</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+word
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Slicing</span>
+
+<span class="c1"># You can also access sections of the data inside iterables using a method similar to indexing.</span>
+<span class="c1"># You accomplish this by specifying a start and end index, which is separated by a colon.</span>
+<span class="c1"># Python will retrieve the starting point, and every value between it and the ending point.</span>
+<span class="c1"># It is important to remember the end point is not included!</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0, 1, 2, 3, 4]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># You can also set a step value (n) for the slice.</span>
+<span class="c1"># This will allow you to retrieve the value at every nth interval.</span>
+<span class="c1"># For instance, if I set the step value to 2, it will take every other value in the slice range</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0, 2, 4]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This step value can also be negative, resulting in the order of the slice being reversed.</span>
+<span class="c1"># If I specify only a step value, I can retrieve the value at every nth interval for the whole iterable.</span>
+<span class="c1"># If the step value is negative, this can reverse the order of the list.</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Combining Lists and Tuples</span>
+
+<span class="c1"># You can combine two lists or tuples using the &#39;+&#39; mathematical operator.</span>
+<span class="c1"># The iterables combined in this way must be of the same type.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">list1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span> <span class="o">+</span> <span class="n">list2</span><span class="p">)</span>
+
+<span class="n">tuple1</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">)</span>
+<span class="n">tuple2</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tuple1</span> <span class="o">+</span> <span class="n">tuple2</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 2, 3, 4, 5, 6]
+(&#39;a&#39;, &#39;b&#39;, &#39;c&#39;, &#39;d&#39;, &#39;e&#39;, &#39;f&#39;)
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Changing Elements in a List</span>
+
+<span class="c1"># To change an element in a list, you set the value at that index to the new value.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="n">list1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list1</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[1, 2, 3]
+[1, 3, 3]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Removing Elements From a List</span>
+
+<span class="c1"># There are two ways to remove elements from a list.</span>
+<span class="c1"># You can use remove() to eliminate the first element of the input value</span>
+<span class="c1"># To eliminate the element at an index, you use the del() function.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">list3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">]</span>
+<span class="n">list3</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">)</span>  <span class="c1">##know value</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list3</span><span class="p">)</span>
+<span class="k">del</span><span class="p">(</span><span class="n">list3</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>   <span class="c1">##index</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list3</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;]
+[&#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;one&#39;, &#39;three&#39;, &#39;four&#39;]
+</pre></div></div>
+</div>
+<p>Notice that the above code does not remove all instances of “one”, but instead removes only the leftmost instance. You can use the remove function if you know the value (but maybe don’t know the index) of the element you want to remove, and you can use del if you know the index (but maybe don’t know the value).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Finding length of iterable</span>
+
+<span class="c1"># You can use the len() function to find the number of elements in an iterable.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">numbers</span><span class="p">))</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+10
+</pre></div></div>
+</div>
+<p>Other Useful Functions for Iterables:</p>
+<div class="line-block">
+<div class="line">Python has a number of built-in functions which can be useful when working with iterables.</div>
+<div class="line">We will not cover all of them here, but you can find a full list of them on the python documentation website. <a class="reference external" href="https://docs.python.org/3/howto/functional.html#built-in-functions">https://docs.python.org/3/howto/functional.html#built-in-functions</a></div>
+</div>
+<p>Additionally, if the format of the official documentation is a little confusing, I would recommend checking out the “itertools” section of Python Like You Mean It. The section contains explanations and examples of some of the most useful iterable functions.</p>
+<p><a class="reference external" href="http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Itertools.html">http://www.pythonlikeyoumeanit.com/Module2_EssentialsOfPython/Itertools.html</a></p>
+<section id="Dictionaries:">
+<h3>Dictionaries:<a class="headerlink" href="#Dictionaries:" title="Link to this heading">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># There is another type of iterable where they indices of its values can be specified.</span>
+<span class="c1"># This is called a dictionary.</span>
+
+<span class="c1"># A dictionary is constructed using curly-brackets and pairs of keys and elements separated by commas.</span>
+<span class="c1"># The key (index) is separated from the value by a colon.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">exampleDict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;four&#39;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;five&#39;</span><span class="p">:</span><span class="mi">5</span><span class="p">}</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exampleDict</span><span class="p">[</span><span class="s1">&#39;two&#39;</span><span class="p">])</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adding to a Dictionary</span>
+
+<span class="c1"># To add a value to a dictionary, you specify the index you would like the value to have as though that</span>
+<span class="c1"># index already exists, and set it equal to the desired value.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">exampleDict</span><span class="p">[</span><span class="s1">&#39;six&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exampleDict</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;one&#39;: 1, &#39;two&#39;: 2, &#39;three&#39;: 3, &#39;four&#39;: 4, &#39;five&#39;: 5, &#39;six&#39;: 6}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keys and Values</span>
+
+<span class="c1"># You can view a list of the keys and values within a dictionary using the keys() and values() functions</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exampleDict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">exampleDict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+dict_keys([&#39;one&#39;, &#39;two&#39;, &#39;three&#39;, &#39;four&#39;, &#39;five&#39;, &#39;six&#39;])
+dict_values([1, 2, 3, 4, 5, 6])
+</pre></div></div>
+</div>
+<p>An important thing to remember about dictionaries is that, where many other iterables have a specific order, dictionaries do not. If you were to attempt to print out the contents of a dictionary, you could get a different order each time. Doing the same for a list or tuple would yield the same order every time.</p>
+</section>
+</section>
+<section id="Loops:">
+<h2>Loops:<a class="headerlink" href="#Loops:" title="Link to this heading">¶</a></h2>
+<section id="For-Loops:">
+<h3>For Loops:<a class="headerlink" href="#For-Loops:" title="Link to this heading">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A for loop is constructed using the word &quot;for&quot;, followed by a variable name, followed by the word &quot;in&quot;,</span>
+<span class="c1"># followed with an iterable, and ending with a colon.</span>
+
+<span class="c1"># The purpose of a for loop is to allow element-wise processing of an iterable.</span>
+<span class="c1"># This means we are looking at the contents of the iterable one piece at a time and performing</span>
+<span class="c1"># operations on that piece.</span>
+
+<span class="c1"># This loop adds up all of the numbers in the tuple.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># total starts at 0</span>
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>  <span class="c1"># We specify the variable is called &quot;num&quot; and the iterable to iterate over</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;num = </span><span class="si">{</span><span class="n">num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Prints the current value of num with a label</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">num</span>  <span class="c1"># Each iteration, we add the current value of num to the previous total</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;total = </span><span class="si">{</span><span class="n">total</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>  <span class="c1"># Prints the current value of total with a label</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+num = 1
+total = 1
+num = 2
+total = 3
+num = 3
+total = 6
+num = 4
+total = 10
+num = 5
+total = 15
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Potential Pitfall of for loops</span>
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[]:</span>         <span class="c1"># the iterable is empty - the iterate-variable `x` will not be defined</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello?&quot;</span><span class="p">)</span>  <span class="c1"># this code is never executed</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>             <span class="c1"># raises an error because `x` was never defined</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Temp/ipykernel_3436/1263319641.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">      3</span> <span class="ansi-green-intense-fg ansi-bold">for</span> x <span class="ansi-green-intense-fg ansi-bold">in</span> <span class="ansi-yellow-intense-fg ansi-bold">[</span><span class="ansi-yellow-intense-fg ansi-bold">]</span><span class="ansi-yellow-intense-fg ansi-bold">:</span>         <span class="ansi-red-intense-fg ansi-bold"># the iterable is empty - the iterate-variable `x` will not be defined</span>
+<span class="ansi-green-fg">      4</span>     print<span class="ansi-yellow-intense-fg ansi-bold">(</span><span class="ansi-blue-intense-fg ansi-bold">&#34;Hello?&#34;</span><span class="ansi-yellow-intense-fg ansi-bold">)</span>  <span class="ansi-red-intense-fg ansi-bold"># this code is never executed</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 5</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>x<span class="ansi-yellow-intense-fg ansi-bold">)</span>             <span class="ansi-red-intense-fg ansi-bold"># raises an error because `x` was never defined</span>
+<span class="ansi-green-fg">      6</span> <span class="ansi-red-intense-fg ansi-bold"># &lt;/COGINST&gt;</span>
+
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;x&#39; is not defined
+</pre></div></div>
+</div>
+</section>
+<section id="While-Loops:">
+<h3>While Loops:<a class="headerlink" href="#While-Loops:" title="Link to this heading">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Similar to a for loop, a while loop is used to rapidly perform the same task multiple times.</span>
+<span class="c1"># The main difference between them is that, where a for loop takes an iterable as input and</span>
+<span class="c1"># runs a number of times equal to the number of elements in the iterable, a while loop</span>
+<span class="c1"># takes a boolean expression as input and will run as long as that boolean is True.</span>
+
+<span class="c1"># A while loops is constructed using the word &quot;while&quot;, followed by a condition, and ending with a colon</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span><span class="p">(</span><span class="n">total</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># equivalent to: `total = total + 1`</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>  <span class="c1"># `total` has the value 2</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+2
+</pre></div></div>
+</div>
+</section>
+<section id="Break-and-Continue">
+<h3>Break and Continue<a class="headerlink" href="#Break-and-Continue" title="Link to this heading">¶</a></h3>
+<p>I’m sorry to get your hopes up with the above heading, but we are not taking a break just yet :(</p>
+<p>The words “break” and “continue” are used in loops to control the flow, or skip sections of the code within the loop.</p>
+<div class="line-block">
+<div class="line">The word “break” causes the loop to end regardless of whether it has reached its natural conclusion.</div>
+<div class="line">The word “continue” causes the loop to skip to the end of the current iteration.</div>
+</div>
+</section>
+<section id="Break:">
+<h3>Break:<a class="headerlink" href="#Break:" title="Link to this heading">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &lt;COGINST&gt;</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">]:</span>  <span class="c1">##pick each item in the list</span>
+    <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1">##Checks if current item is equal to 3</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...break!&quot;</span><span class="p">)</span>
+        <span class="k">break</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="s2">&quot; ...next iteration&quot;</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+2  ...next iteration
+4  ...next iteration
+6  ...next iteration
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now try running the same code with a 3 in the list</span>
+
+<span class="c1"># Student Code Here</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Continue:">
+<h3>Continue:<a class="headerlink" href="#Continue:" title="Link to this heading">¶</a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># While &quot;break&quot; is very useful, you may want to skip some sections of a loop without ending it entirely.</span>
+<span class="c1"># This is where &quot;continue&quot; comes in.</span>
+
+<span class="c1"># You can use &quot;continue&quot; to skip the rest of the current iteration.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">3</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;for loop is done&quot;</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1
+2
+4
+5
+for loop is done
+</pre></div></div>
+</div>
+</section>
+<section id="Functions">
+<h3>Functions<a class="headerlink" href="#Functions" title="Link to this heading">¶</a></h3>
+<div class="line-block">
+<div class="line">We’ve used functions that are built into python to perform operations on variables and iterables. Now we are going to practice writing our own.</div>
+<div class="line">Functions provide a means for running a block of code with varying inputs without writing the whole thing again.</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A function is constructed with the word &quot;def&quot;, followed by the</span>
+<span class="c1"># name of the function (similar to a variable name), followed by input variables inside parentheses,</span>
+<span class="c1"># and ended with a colon.</span>
+
+<span class="c1"># Inside the function, the word &quot;return&quot; specifies what value is to be output by the function.</span>
+<span class="c1"># It is important to remember that once the &quot;return&quot; activates, no other code inside the function will run.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">y</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="c1">##Should print result of 2^2 + 2*2 + 1 which is 9</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+9
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Something to keep in mind when using functions, is that the variables we create inside it</span>
+<span class="c1"># are not accessible outside of it.  If we try to print the variable y, it will result in an error.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">~\AppData\Local\Temp/ipykernel_3436/1949066660.py</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">      3</span>
+<span class="ansi-green-fg">      4</span> <span class="ansi-red-intense-fg ansi-bold"># &lt;COGINST&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 5</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>print<span class="ansi-yellow-intense-fg ansi-bold">(</span>y<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+<span class="ansi-green-fg">      6</span> <span class="ansi-red-intense-fg ansi-bold"># &lt;/COGINST&gt;</span>
+
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;y&#39; is not defined
+</pre></div></div>
+</div>
+</section>
+<section id="Challenge-Problems:">
+<h3>Challenge Problems:<a class="headerlink" href="#Challenge-Problems:" title="Link to this heading">¶</a></h3>
+<p>We will now be moving into breakout rooms to try answering some problems similar to those which will be found in this week’s homework.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># One common application you may find for loops, especially in data science and machine learning,</span>
+<span class="c1"># is the construction of more complex iterables from simple ones.</span>
+
+<span class="c1"># For instance, lets say you have a list of names and a list of grades.</span>
+<span class="c1"># The two lists are not connected in anyway besides perhaps the corresponding values sharing an index.</span>
+<span class="c1"># We can use a loop to transfer this data into a dictionary which links the information together.</span>
+
+<span class="c1"># Create a dictionary named &quot;Gradebook&quot; which holds the grades as a value for the correspondding student key</span>
+<span class="n">Names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Alexander&#39;</span><span class="p">,</span> <span class="s1">&#39;Abhi&#39;</span><span class="p">,</span> <span class="s1">&#39;Krishna&#39;</span><span class="p">,</span> <span class="s1">&#39;Sydney&#39;</span><span class="p">]</span>
+<span class="n">Grades</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span> <span class="p">[</span><span class="mi">84</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">77</span><span class="p">],</span> <span class="p">[</span><span class="mi">96</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">77</span><span class="p">],</span> <span class="p">[</span><span class="mi">93</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">85</span><span class="p">]]</span>
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">GradeBook</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Names</span><span class="p">)):</span>
+    <span class="n">GradeBook</span><span class="p">[</span><span class="n">Names</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Grades</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">GradeBook</span><span class="p">)</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try writing a function to compute the average of a list of numbers.</span>
+<span class="c1"># You can accomplish this using either a loop or iterable functions.</span>
+
+<span class="c1"># &lt;COGINST&gt;</span>
+<span class="k">def</span> <span class="nf">avg</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">avg</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]))</span>
+
+<span class="c1"># or</span>
+
+<span class="k">def</span> <span class="nf">avg</span><span class="p">(</span><span class="n">nums</span><span class="p">):</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">nums</span><span class="p">:</span>
+        <span class="n">total</span> <span class="o">+=</span> <span class="n">each</span>
+    <span class="k">return</span> <span class="n">total</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">avg</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]))</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="line-block">
+<div class="line">A Palindrome is a string that reads the sdame from left to right and from right to left.</div>
+<div class="line">Strings like “racecar” and “live on time, emit no evil” are palindromes</div>
+</div>
+<div class="line-block">
+<div class="line">Notice that only valid alphanumeric characters are accounted for and that palindromes are not case-sensitive.</div>
+<div class="line">Write a function named “is_palindrome” which, given a string, returns whether or not the string is a palindrome.</div>
+</div>
+<p>Examples:</p>
+<p>is_palindrome(“Step on no pets!”) –&gt; True</p>
+<p>is_palindrome(“‘Tis not a palindrome”) –&gt; False</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &lt;COGINST&gt;</span>
+<span class="k">def</span> <span class="nf">is_palindrome</span><span class="p">(</span><span class="n">input_str</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Given a string, determine if it is a palindrome.</span>
+<span class="sd">        Whitespaces, character-casing, and non-alphanumeric</span>
+<span class="sd">        characters are all ignored.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        s: str</span>
+<span class="sd">            Input string</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">filtered_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">input_str</span> <span class="k">if</span> <span class="n">c</span><span class="o">.</span><span class="n">isalnum</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">filtered_str</span> <span class="o">==</span> <span class="n">filtered_str</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>Sometimes it is very important to handle different input object types differently in a function. This problem will exercise your understanding of types, control-flow, dictionaries, and more.</p>
+<p>We want to encode a sequence of Python objects as a single string. The following describes the encoding method that we want to use for each type of object. Each object’s transcription in should be separated by “ | “, and the result should be one large string.</p>
+<p>If the object is an integer, convert it into a string by spelling out each digit in base-10 in this format: 142 one-four-two; -12 neg-one-two.</p>
+<p>If the object is a float, just append its integer part (obtained by rounding down) the same way and the string “and float”: 12.324 one-two and float.</p>
+<p>If the object is a string, keep it as is.</p>
+<p>If the object is of any other type, return ‘OTHER’.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &lt;COGINST&gt;</span>
+<span class="n">stringMap</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;0&#39;</span><span class="p">:</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">:</span><span class="s1">&#39;three&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">:</span><span class="s1">&#39;four&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">:</span><span class="s1">&#39;five&#39;</span><span class="p">,</span>
+             <span class="s1">&#39;6&#39;</span><span class="p">:</span><span class="s1">&#39;six&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">:</span><span class="s1">&#39;seven&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">:</span><span class="s1">&#39;eight&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">:</span><span class="s1">&#39;nine&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span><span class="s1">&#39;neg&#39;</span><span class="p">}</span>
+<span class="k">def</span> <span class="nf">encodeObj</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span> <span class="k">return</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stringMap</span><span class="p">[</span><span class="n">digit</span><span class="p">]</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span> <span class="k">return</span> <span class="s2">&quot;-&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stringMap</span><span class="p">[</span><span class="n">digit</span><span class="p">]</span> <span class="k">for</span> <span class="n">digit</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">item</span><span class="p">)))</span> <span class="o">+</span> <span class="s2">&quot; and float&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span> <span class="k">return</span> <span class="n">item</span>
+    <span class="k">return</span> <span class="s1">&#39;OTHER&#39;</span>
+<span class="c1"># &lt;/COGINST&gt;</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../intro_to_python/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">[1.1] Intro to Python</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../lecture_one/">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">[1] Intro to Python</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">[2] Intro to Python Two</a><ul>
+<li><a class="reference internal" href="#Iterables:">Iterables:</a><ul>
+<li><a class="reference internal" href="#Dictionaries:">Dictionaries:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#Loops:">Loops:</a><ul>
+<li><a class="reference internal" href="#For-Loops:">For Loops:</a></li>
+<li><a class="reference internal" href="#While-Loops:">While Loops:</a></li>
+<li><a class="reference internal" href="#Break-and-Continue">Break and Continue</a></li>
+<li><a class="reference internal" href="#Break:">Break:</a></li>
+<li><a class="reference internal" href="#Continue:">Continue:</a></li>
+<li><a class="reference internal" href="#Functions">Functions</a></li>
+<li><a class="reference internal" href="#Challenge-Problems:">Challenge Problems:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=19645805"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </body>
+</html>
