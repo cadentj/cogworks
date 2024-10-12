@@ -10,5 +10,5 @@ Last updated: October 11, 2024
    :caption: Contents:
 
    notebooks/lecture_one
-   notebooks/lecture_two
    notebooks/intro_to_python
+   notebooks/lecture_two
